@@ -1,19 +1,19 @@
 const data = {
-    scn: {
+    past: {
         questions: [
             {
-                question: "Кто является главным богом в скандинавской мифологии?",
-                answers: ["Один", "Тор", "Локи", "Фрейя"],
-                validAnswer: 1,
+                question: "John was so thirsty that he ____ two glasses of water.",
+                answers: ["drinked", "drank", "drink", "had drunk"],
+                validAnswer: 2,
             },
             {
-                question: "Как называется мир в скандинавской мифологии, на котором живут люди?",
-                answers: ["Мидгард", "Асгард", "Валгалла", "Йотунхейм"],
-                validAnswer: 1,
+                question: "Nobody ___ while we were having dinner",
+                answers: ["didn`t phone", "did phone", "phoned", "had phoned"],
+                validAnswer: 3,
             },
             {
-                question: "Что является символом бога Тора?",
-                answers: ["Молот", "Меч", "Лук", "Копье"],
+                question: "When I got home, my sister ___ with a kitten.",
+                answers: ["was playing", "playing", "were playing", "played"],
                 validAnswer: 1,
             },
             {
@@ -27,9 +27,9 @@ const data = {
                 validAnswer: 2,
             },
             {
-                question: "Как называется мифический молот бога Тора?",
-                answers: ["Йарнборг", "Мьелнир", "Гунгнир", "Валькирия"],
-                validAnswer: 2,
+                question: "We ___ tea when our grandparents came.",
+                answers: ["were having", "were have", "was having", "was have"],
+                validAnswer: 1,
             },
             {
                 question: "Кто является богиней любви в скандинавской мифологии?",
@@ -37,8 +37,8 @@ const data = {
                 validAnswer: 1,
             },
             {
-                question: "Как называется мир, в котором живут боги в скандинавской мифологии?",
-                answers: ["Асгард", "Мидгард", "Валгалла", "Йотунхейм"],
+                question: "It was my brother`s birthday on Sunday, so I ___ him a postcard.",
+                answers: ["sent", "send", "have sent", "sended"],
                 validAnswer: 1,
             },
             {
@@ -47,14 +47,14 @@ const data = {
                 validAnswer: 3,
             },
             {
-                question: "Кто является богом моря в скандинавской мифологии?",
-                answers: ["Ран", "Браги", "Лир", "Эгир"],
-                validAnswer: 4,
+                question: "We ___ last night due to the nasty weather.",
+                answers: ["did go out", "didn`t went out", "didn`t go out", "did went out"],
+                validAnswer: 3,
             },
             {
-                question: "Какая сила скандинавской мифологии была известна своими сверхъестественными способностями и неуязвимостью?",
-                answers: ["Берсеркеры", "Валькирии", "Нидхогг", "Фенрир"],
-                validAnswer: 1,
+                question: "We ___ a New Year tree all morning yesrerday.",
+                answers: ["were to decorating", "was decorating", "were decorating", "decorated"],
+                validAnswer: 3,
             },
             {
                 question: "Как называется мир, в котором пребывают погибшие в битвах в скандинавской мифологии?",
@@ -67,9 +67,9 @@ const data = {
                 validAnswer: 1,
             },
             {
-                question: "Как зовут богиню, которая правит домом мертвых?",
-                answers: ["Хель", "Фрейя", "Скади", "Идун"],
-                validAnswer: 1,
+                question: "Mary ___ home when she met her old friend.",
+                answers: ["were walking", "was walk", "was walking", "walked"],
+                validAnswer: 3,
             },
             {
                 question: "Какой герой скандинавской мифологии был известен своим могучим молотом, который мог разрушить все вокруг?",
@@ -78,7 +78,7 @@ const data = {
             },
         ]
     },
-    gre: {
+    present: {
         questions: [
             {
                 question: "Какое животное помогло Гераклу украсть яблоки Гесперид?",
@@ -157,7 +157,7 @@ const data = {
             },
         ]
     },
-    egpt: {
+    future: {
         questions: [
             {
                 question: "Египетская богиня с причудливой головой льва?",
