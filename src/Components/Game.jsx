@@ -14,19 +14,19 @@ const Game = React.forwardRef((props, ref) => {
 
   switch (type) {
     case 1:
-      gameClass = "scandinavia";
-      header = "Скандинавия";
-      questions = data.scn.questions;
+      gameClass = "past";
+      header = "Past";
+      questions = data.past.questions;
       break;
     case 2:
-      gameClass = "greece";
-      header = "Греция";
-      questions = data.gre.questions;
+      gameClass = "present";
+      header = "Present";
+      questions = data.present.questions;
       break;
     case 3:
-      gameClass = "egypt";
-      header = "Египет";
-      questions = data.egpt.questions;
+      gameClass = "future";
+      header = "Future";
+      questions = data.future.questions;
       break;
     default:
       break;
@@ -87,18 +87,18 @@ const Game = React.forwardRef((props, ref) => {
 
   function getComment() {
     if (currentAnswersCount < 6) {
-      return "Не стоит огорчаться, если результат небольшой. Это отличный повод изучить тему еще более тщательно!";
+      return "Не расстраивайтесь, если прогресс небольшой. Это замечательная возможность погрузиться в изучение времён в английском более глубоко!";
     } else if (currentAnswersCount < 11) {
-      return "Вы проявили неплохие знания, но есть еще, что можно изучить. Продолжайте узнавать новое!";
-    } else if (currentAnswersCount < 15) {
-      return "Вы хорошо знаете мифологию, но есть несколько ошибок. Попробуйте еще раз!";
+      return "Вы проявили хорошее понимание времён в английском языке, однако есть ещё многое, что можно узнать. Продолжайте изучать новое!";
+    } else if (currentAnswersCount < 16) {
+      return "Ваши знания времён в английском языке хороши, но есть несколько ошибок. Попробуйте ещё раз!";
     } else {
-      return "Безупречный результат! Вы отлично разбираетесь в мифологии!";
+      return "Отличный результат! Вы отлично разбираетесь в английских временах!";
     }
   }
 
   function toMenu() {
-    props.assistant_global(null, "list_theme")
+    props.assistant_global(null, "list_of_tense")
     navigate("/");
   }
 
@@ -182,7 +182,7 @@ const Game = React.forwardRef((props, ref) => {
                 Следующий вопрос
               </Button>
               <Button size="s" view="secondary" onClick={toMenu}>
-                Список тем
+                Список времён
               </Button>
             </div>
           </>
@@ -195,7 +195,7 @@ const Game = React.forwardRef((props, ref) => {
             </p>
             <Button size="l" view="primary" onClick={toMenu}
               focused={true}>
-              Играть снова
+              Попробовать снова
             </Button>
           </div>
         )}

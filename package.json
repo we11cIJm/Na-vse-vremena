@@ -1,8 +1,8 @@
 {
-  "name": "quiz-smartapp",
+  "name": "na-vse-vremena-smartapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/solovboy/CanvasApp-mythology/",
+  "homepage": "https://github.com/we11cIJm/Na-vse-vremena/",
   "dependencies": {
     "@salutejs/client": "^1.19.0",
     "@salutejs/plasma-icons": "^1.150.0",

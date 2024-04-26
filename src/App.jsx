@@ -126,7 +126,7 @@ function App() {
       case 'menu':
         assistantRef.current.sendData({
           action: {
-            action_id: 'list_theme',
+            action_id: 'list_of_tense',
             parameters: {
               number: null
             }
