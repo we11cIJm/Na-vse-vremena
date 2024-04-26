@@ -1,0 +1,49 @@
+{
+  "name": "quiz-smartapp",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://github.com/solovboy/CanvasApp-mythology/",
+  "dependencies": {
+    "@salutejs/client": "^1.19.0",
+    "@salutejs/plasma-icons": "^1.150.0",
+    "@salutejs/plasma-tokens": "^1.55.0",
+    "@salutejs/plasma-ui": "^1.197.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^16.1.4",
+    "gh-pages": "^5.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.12.1",
+    "react-scripts": "^5.0.1",
+    "styled-components": "^5.3.10",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
