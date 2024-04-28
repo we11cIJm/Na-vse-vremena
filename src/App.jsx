@@ -154,7 +154,7 @@ function App() {
       case "smart_app_data":
         // notify(event.type);
         handleAssistantDataEventSmartAppData(event);
-        break
+        break;
 
       default:
         break
