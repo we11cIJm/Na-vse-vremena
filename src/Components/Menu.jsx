@@ -14,11 +14,11 @@ function Menu({assistant_global}) {
 
     return (
         <div className="Menu">
-            <h1 className="quiz-text">Для начала игры нужно выбрать интересующую вас мифологию:</h1>
+            <h1 className="quiz-text">Для начала игры нужно выбрать время:</h1>
             <div className="types">
-            <Button text="Тема 1: скандинавская" size="l" onClick={() => toStartQuiz(1)} className="menu-btn"/>
-            <Button text="Тема 2: греческая" size="l" onClick={() => toStartQuiz(2)} className="menu-btn"/>
-            <Button text="Тема 3: египетская" size="l" onClick={() => toStartQuiz(3)} className="menu-btn"/>
+            <Button text="Past" size="l" onClick={() => toStartQuiz(1)} className="menu-btn"/>
+            <Button text="Present" size="l" onClick={() => toStartQuiz(2)} className="menu-btn"/>
+            <Button text="Future" size="l" onClick={() => toStartQuiz(3)} className="menu-btn"/>
 
             </div>
         </div>
