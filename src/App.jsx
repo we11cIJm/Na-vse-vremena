@@ -9,6 +9,9 @@ import {
   useLocation
 } from "react-router-dom";
 import Game from './Components/Game';
+import PastTheory from './Components/PastTheory';
+import PresentTheory from './Components/PresentTheory';
+import FutureTheory from './Components/FutureTheory';
 import data from "./Content/questions"
 import React, {
   useReducer,
@@ -208,6 +211,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Menu assistant_global={assistant_global} />} />
         <Route exact path="/game" element={<Game ref={childRef} assistant_global={assistant_global} />} />
+        <Route path="/theory/past" element={<PastTheory assistant_global={assistant_global} />} />
+        <Route path="/theory/present" element={<PresentTheory assistant_global={assistant_global} />} />
+        <Route path="/theory/future" element={<FutureTheory assistant_global={assistant_global} />} />
       </Routes>
     </div>
   );
