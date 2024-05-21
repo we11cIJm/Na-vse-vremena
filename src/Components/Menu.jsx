@@ -9,7 +9,10 @@ function Menu({assistant_global}) {
 
     function toStartQuiz(type) {
         assistant_global(type, "choose_theme")
-        //navigate('/game', { state: { Type: type } });
+    }
+
+    function showTheory(type) {
+        assistant_global(type, "choose_theory")
     }
 
     return (
@@ -20,17 +23,34 @@ function Menu({assistant_global}) {
                 {/*<Button text="Present" size="l" onClick={() => toStartQuiz(2)} className="menu-btn"/>*/}
                 {/*<Button text="Future" size="l" onClick={() => toStartQuiz(3)} className="menu-btn"/>*/}
 
+                {/*<div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>*/}
+                {/*    <Button text="Past" size="s" onClick={() => toStartQuiz(1)} className="menu-btn"/>*/}
+                {/*    <Button text="Theory" size="s" view="secondary" onClick={() => navigate('/theory/past')} className="theory-button"/>*/}
+                {/*</div>*/}
+                {/*<div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>*/}
+                {/*    <Button text="Present" size="s" onClick={() => toStartQuiz(2)} className="menu-btn"/>*/}
+                {/*    <Button text="Theory" size="s" view="secondary" onClick={() => navigate('/theory/present')}  className="theory-button"/>*/}
+                {/*</div>*/}
+                {/*<div style={{display: 'flex', alignItems: 'center'}}>*/}
+                {/*    <Button text="Future" size="s" onClick={() => toStartQuiz(3)} className="menu-btn"/>*/}
+                {/*    <Button text="Theory" size="s" view="secondary" onClick={() => navigate('/theory/future')}  className="theory-button"/>*/}
+                {/*</div>*/}
+
                 <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
-                    <Button text="Past" size="s" onClick={() => toStartQuiz(1)} className="menu-btn"/>
-                    <Button text="Theory" size="s" view="secondary" onClick={() => navigate('/theory/past')} className="theory-button"/>
+                    <Button text="Past" size="s" onClick={() => toStartQuiz("Past practice")} className="menu-btn"/>
+                    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory("Past theory")}
+                            className="theory-button"/>
                 </div>
                 <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
-                    <Button text="Present" size="s" onClick={() => toStartQuiz(2)} className="menu-btn"/>
-                    <Button text="Theory" size="s" view="secondary" onClick={() => navigate('/theory/present')}  className="theory-button"/>
+                    <Button text="Present" size="s" onClick={() => toStartQuiz("Present practice")}
+                            className="menu-btn"/>
+                    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory("Present theory")}
+                            className="theory-button"/>
                 </div>
                 <div style={{display: 'flex', alignItems: 'center'}}>
-                    <Button text="Future" size="s" onClick={() => toStartQuiz(3)} className="menu-btn"/>
-                    <Button text="Theory" size="s" view="secondary" onClick={() => navigate('/theory/future')}  className="theory-button"/>
+                    <Button text="Future" size="s" onClick={() => toStartQuiz("Future practice")} className="menu-btn"/>
+                    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory("Future theory")}
+                            className="theory-button"/>
                 </div>
             </div>
         </div>

@@ -18,12 +18,27 @@ const Game = React.forwardRef((props, ref) => {
       header = "Past";
       questions = data.past.questions;
       break;
+    case "past":
+      gameClass = "past";
+      header = "Past";
+      questions = data.past.questions;
+      break;
     case 2:
       gameClass = "present";
       header = "Present";
       questions = data.present.questions;
       break;
+    case "present":
+      gameClass = "present";
+      header = "Present";
+      questions = data.present.questions;
+      break;
     case 3:
+      gameClass = "future";
+      header = "Future";
+      questions = data.future.questions;
+      break;
+    case "future":
       gameClass = "future";
       header = "Future";
       questions = data.future.questions;

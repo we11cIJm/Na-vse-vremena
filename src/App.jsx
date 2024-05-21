@@ -57,7 +57,7 @@ html {
 
 function App() {
   const [character, setCharacter] = useState('sber');
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(0);
   const navigate = useNavigate();
   const initialize = (getState) => {
     if (process.env.NODE_ENV === "development") {
@@ -75,11 +75,11 @@ function App() {
   const assistantRef = useRef();
 
   useEffect(() => {
-    navigate('/')
+    navigate('/');
     assistantRef.current = initialize(() => assistantStateRef.current);
 
     assistantRef.current.on("data", (action) => {
-      handleAssistantDataEvent(action)
+      handleAssistantDataEvent(action);
     });
 
 
@@ -178,18 +178,62 @@ function App() {
   //     });
   // }
 
-  function assistant_global(n, state) {
-    console.log(n, state)
+  // function assistant_global(n, state) {
+  //   console.log(n, state)
+  //   assistantRef.current.sendData({
+  //     action: {
+  //       action_id: state,
+  //       parameters: {
+  //         number: n
+  //       }
+  //     }
+  //   })
+  //   if (state === "choose_theme") {
+  //     navigate('/game', { state: { Type: Number(n) } });
+  //   } else if (state === "choose_theory") {
+  //     navigate('/theory', { state: { Type: Number(n) } });
+  //   }
+  // }
+
+  function assistant_global(command, type) {
+    console.log(command, type);
     assistantRef.current.sendData({
       action: {
-        action_id: state,
+        action_id: type,
         parameters: {
-          number: n
+          command
         }
       }
-    })
-    if (state === "choose_theme") {
-      navigate('/game', { state: { Type: Number(n) } });
+    });
+
+    if (type === "choose_theme") {
+      switch (command) {
+        case "Past practice":
+          navigate('/game', { state: { Type: 1 } });
+          break;
+        case "Present practice":
+          navigate('/game', { state: { Type: 2 } });
+          break;
+        case "Future practice":
+          navigate('/game', { state: { Type: 3 } });
+          break;
+        default:
+          break;
+      }
+    } else if (type === "choose_theory") {
+      switch (command) {
+        case "Past theory":
+          navigate('/theory/past');
+          break;
+        case "Present theory":
+          navigate('/theory/present');
+          break;
+        case "Future theory":
+          navigate('/theory/future');
+          break;
+        default:
+          break;
+      }
     }
   }
 
