@@ -97,17 +97,17 @@ body,
 }
 
 .game.past {
-    background-image: url("Content/past.png");
+    background-image: url("Content/practice.jpg");
 }
 
 .game.present {
     /*background-image: url("Content/present.png");*/
-    background-image: url("Content/past.jpg");
+    background-image: url("Content/practice.jpg");
 }
 
 .game.future {
     /*background-image: url("Content/future.png");*/
-    background-image: url("Content/past.jpg");
+    background-image: url("Content/practice.jpg");
 }
 
 .theory-page {
