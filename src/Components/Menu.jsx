@@ -37,7 +37,6 @@ function Menu({assistant_global}) {
                 {/*</div>*/}
 
                 <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
-                    // TODO: make phrases instead of nums
                     <Button text="Past" size="s" onClick={() => toStartQuiz(1)} className="menu-btn"/>
                     <Button text="Theory" size="s" view="secondary" onClick={() => showTheory(1)}
                             className="theory-button"/>

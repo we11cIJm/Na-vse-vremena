@@ -9,10 +9,10 @@ import {
   useLocation
 } from "react-router-dom";
 import Game from './Components/Game';
-//import PastTheory from './Components/PastTheory';
-//import PresentTheory from './Components/PresentTheory';
-//import FutureTheory from './Components/FutureTheory';
-import Theory from './Components/Theory';
+import PastTheory from './Components/PastTheory';
+import PresentTheory from './Components/PresentTheory';
+import FutureTheory from './Components/FutureTheory';
+//import Theory from './Components/Theory';
 import data from "./Content/questions"
 import React, {
   useReducer,
@@ -121,7 +121,7 @@ function App() {
       }
       case 'choose_theory': {
         console.log('choose_theory', action.note)
-        navigate('/theory', { state: { Type: Number(action.note) } });
+        navigate('/theory/'.concat(action.note), { state: { Type: Number(action.note) } });
         //navigate('/quizStart', { state: { Type: action.note } });
         break;
       }
@@ -237,7 +237,8 @@ function App() {
           navigate('/theory', { state: { Type: 2 } });
           break;
         case 3: // "Future theory":
-          navigate('/theory', { state: { Type: 3 } });
+          // navigate('/theory', { state: { Type: 3 } });
+          navigate('/theory/3', { state: { Type: 3 } });
           break;
         default:
           break;
@@ -263,11 +264,11 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Menu assistant_global={assistant_global} />} />
         <Route exact path="/game" element={<Game ref={childRef} assistant_global={assistant_global} />} />
-        <Route exact path="/theory" element={<Theory ref={childRef} assistant_global={assistant_global} />} />
+        {/* <Route exact path="/theory" element={<Theory assistant_global={assistant_global} />} /> */}
 
-        // <Route path="/theory/past" element={<PastTheory assistant_global={assistant_global} />} />
-        // <Route path="/theory/present" element={<PresentTheory assistant_global={assistant_global} />} />
-        // <Route path="/theory/future" element={<FutureTheory assistant_global={assistant_global} />} />
+        <Route path="/theory/1" element={<PastTheory assistant_global={assistant_global} />} />
+        <Route path="/theory/2" element={<PresentTheory assistant_global={assistant_global} />} />
+        <Route path="/theory/3" element={<FutureTheory assistant_global={assistant_global} />} />
       </Routes>
     </div>
   );
