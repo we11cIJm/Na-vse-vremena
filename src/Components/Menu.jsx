@@ -37,19 +37,20 @@ function Menu({assistant_global}) {
                 {/*</div>*/}
 
                 <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
-                    <Button text="Past" size="s" onClick={() => toStartQuiz("Past practice")} className="menu-btn"/>
-                    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory("Past theory")}
+                    // TODO: make phrases instead of nums
+                    <Button text="Past" size="s" onClick={() => toStartQuiz(1)} className="menu-btn"/>
+                    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory(1)}
                             className="theory-button"/>
                 </div>
                 <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
-                    <Button text="Present" size="s" onClick={() => toStartQuiz("Present practice")}
+                    <Button text="Present" size="s" onClick={() => toStartQuiz(2)}
                             className="menu-btn"/>
-                    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory("Present theory")}
+                    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory(2)}
                             className="theory-button"/>
                 </div>
                 <div style={{display: 'flex', alignItems: 'center'}}>
-                    <Button text="Future" size="s" onClick={() => toStartQuiz("Future practice")} className="menu-btn"/>
-                    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory("Future theory")}
+                    <Button text="Future" size="s" onClick={() => toStartQuiz(3)} className="menu-btn"/>
+                    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory(3)}
                             className="theory-button"/>
                 </div>
             </div>
