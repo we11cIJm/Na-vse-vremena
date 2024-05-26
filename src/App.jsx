@@ -208,13 +208,13 @@ function App() {
 
     if (type === "choose_theme") {
       switch (command) {
-        case "Past practice":
+        case 1: // "Past practice":
           navigate('/game', { state: { Type: 1 } });
           break;
-        case "Present practice":
+        case 2: // "Present practice":
           navigate('/game', { state: { Type: 2 } });
           break;
-        case "Future practice":
+        case 3: // "Future practice":
           navigate('/game', { state: { Type: 3 } });
           break;
         default:
@@ -222,14 +222,14 @@ function App() {
       }
     } else if (type === "choose_theory") {
       switch (command) {
-        case "Past theory":
-          navigate('/theory/past');
+        case 1: //"Past theory":
+          navigate('/theory/past', { state: { Type: 1 } });
           break;
-        case "Present theory":
-          navigate('/theory/present');
+        case 2: // "Present theory":
+          navigate('/theory/present', { state: { Type: 2 } });
           break;
-        case "Future theory":
-          navigate('/theory/future');
+        case 3: // "Future theory":
+          navigate('/theory/future', { state: { Type: 3 } });
           break;
         default:
           break;
