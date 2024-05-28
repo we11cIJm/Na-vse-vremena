@@ -183,8 +183,8 @@ function App() {
       }
     });
 
-    // if (type === "choose_theme") {
-    if (type === 'new_topic') {
+    if (type === "choose_theme") {
+    // if (type === 'new_topic') {
       switch (command) {
         // case 1:
         case 'прошедшее':
