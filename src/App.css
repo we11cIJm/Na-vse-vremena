@@ -55,16 +55,17 @@ body,
     min-width: 350px;
 }
 
+
 .menu-btn span {
     font-weight: 600;
     font-size: 24px;
 }
 
-.menu-btn:hover {
-    background-color: var(--plasma-colors-button-accent);
-    color: white;
-    cursor: pointer;
+.menu-btn:hover,
+.theory-button:hover {
+    background-color: green;
 }
+
 
 .quiz-start {
     display: flex;
