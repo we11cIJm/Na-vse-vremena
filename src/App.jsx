@@ -109,26 +109,26 @@ function App() {
   }
 
   const dispatchAssistantAction = (action) => {
-    // notify(`action ${action} `);
     if (!action) return;
 
     switch (action.type) { //action.types
       case 'new_topic': {
         console.log('new_topic', action.note)
-        navigate('/game', { state: { Type: Number(action.note) } });
-        //navigate('/quizStart', { state: { Type: action.note } });
+        // navigate('/game', { state: { Type: Number(action.note) } });
+        navigate('/game', { state: { Type: action.note } });
         break;
       }
       case 'choose_theory': {
         console.log('choose_theory', action.note)
-        navigate('/theory/'.concat(action.note), { state: { Type: Number(action.note) } });
-        //navigate('/quizStart', { state: { Type: action.note } });
+        // navigate('/theory/'.concat(action.note), { state: { Type: Number(action.note) } });
+        navigate('/theory/'.concat(action.note), { state: { Type: action.note } });
         break;
       }
 
       case 'answer':
         if (childRef?.current)
-          childRef.current.callMethod('ans', Number(action.note));
+          // childRef.current.callMethod('ans', Number(action.note));
+          childRef.current.callMethod('ans', action.note);
         break;
       case 'next':
         if (childRef?.current)
@@ -172,37 +172,6 @@ function App() {
     }
   }
 
-  // const handleOnRefreshClick = () => {
-  //   // Отправка сообщения бэкенду с возможностью подписки на ответ.
-  //   // В обработчик assistant.on('data') сообщение не передается
-  //   const unsubscribe = assistant.sendAction(
-  //     { type: 'some_action_name', payload: { param: 'some' } },
-  //     (data: { type: string; payload: Record<string, unknown> }) => {
-  //       // Обработка данных, переданных от бэкенд
-  //       unsubscribe();
-  //     },
-  //     (error: { code: number; description: string }) => {
-  //       // Обработка ошибки, переданной от бэкенд
-  //     });
-  // }
-
-  // function assistant_global(n, state) {
-  //   console.log(n, state)
-  //   assistantRef.current.sendData({
-  //     action: {
-  //       action_id: state,
-  //       parameters: {
-  //         number: n
-  //       }
-  //     }
-  //   })
-  //   if (state === "choose_theme") {
-  //     navigate('/game', { state: { Type: Number(n) } });
-  //   } else if (state === "choose_theory") {
-  //     navigate('/theory', { state: { Type: Number(n) } });
-  //   }
-  // }
-
   function assistant_global(command, type) {
     console.log(command, type);
     assistantRef.current.sendData({
@@ -214,29 +183,36 @@ function App() {
       }
     });
 
-    if (type === "choose_theme") {
+    // if (type === "choose_theme") {
+    if (type === 'new_topic') {
       switch (command) {
-        case 1: // "Past practice":
+        // case 1:
+        case 'прошедшее':
           navigate('/game', { state: { Type: 1 } });
           break;
-        case 2: // "Present practice":
+        // case 2:
+        case 'настоящее':
           navigate('/game', { state: { Type: 2 } });
           break;
-        case 3: // "Future practice":
+        // case 3:
+        case 'будущее':
           navigate('/game', { state: { Type: 3 } });
           break;
         default:
           break;
       }
-    } else if (type === "choose_theory") {
+    } else if (type === 'choose_theory') {
       switch (command) {
-        case 1: //"Past theory":
-          navigate('/theory', { state: { Type: 1 } });
+        // case 1:
+        case 'прошедшее':
+          navigate('/theory/1', { state: { Type: 1 } });
           break;
-        case 2: // "Present theory":
-          navigate('/theory', { state: { Type: 2 } });
+        // case 2:
+        case 'настоящее':
+          navigate('/theory/2', { state: { Type: 2 } });
           break;
-        case 3: // "Future theory":
+        // case 3:
+        case 'будущее':
           // navigate('/theory', { state: { Type: 3 } });
           navigate('/theory/3', { state: { Type: 3 } });
           break;

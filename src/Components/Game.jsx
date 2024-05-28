@@ -18,7 +18,7 @@ const Game = React.forwardRef((props, ref) => {
       header = "Past";
       questions = data.past.questions;
       break;
-    case "past":
+    case 'прошедшее':
       gameClass = "past";
       header = "Past";
       questions = data.past.questions;
@@ -28,7 +28,7 @@ const Game = React.forwardRef((props, ref) => {
       header = "Present";
       questions = data.present.questions;
       break;
-    case "present":
+    case 'настоящее':
       gameClass = "present";
       header = "Present";
       questions = data.present.questions;
@@ -38,7 +38,7 @@ const Game = React.forwardRef((props, ref) => {
       header = "Future";
       questions = data.future.questions;
       break;
-    case "future":
+    case 'будущее':
       gameClass = "future";
       header = "Future";
       questions = data.future.questions;
