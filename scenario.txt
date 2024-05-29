@@ -117,24 +117,21 @@ theme:/
         go: /ВоВремена
         state: ВоВремена
             state: ВыборВремени
-                    q: (~тема) @duckling.number:: anyText || fromState = /ВоВремена, onlyThisState = true 
+                    q: (~тема) || fromState = /ВоВремена, onlyThisState = true 
                     event: choose_theme || fromState = /ВоВремена, onlyThisState = true
                     
                     if: $request.query != undefined
-                        if: $parseTree._anyText < 1
-                            a: Такой темы нет! Выберите: тема 1, тема 2 или тема 3.
-                            go: /ВоВремена
-                        elseif: $parseTree._anyText > 4
-                            a: Такой темы нет! Выберите: тема 1, тема 2 или тема 3.
-                            go: /ВоВремена
-                        else:
+                        if: 'прошедшее' in $request.query || 'настоящее' in $request.query || 'будущее' in $request.query
                             random:
                                 a: Отлично, {{$request.query}} выбрана!
-                                a: Начнем тестирование {{$request.query}}!
+                                a: Начнем тестирование по {{$request.query}}!
                                 a: {{$request.query}} выбрана!
                             script:
                                 Topic($parseTree._anyText, $context);
                                 addSuggestions(["ответ 1","вариант 2", "номер 3", "ответ 4", "выход"], $context);
+                        else:
+                            a: Такой темы нет! Выберите: практика, а затем прошедшее, настоящее или будущее время.
+                            go: /ВоВремена 
                     else:
                         random:
                             a: Замечательно, тема {{$request.data.eventData.number}}!
