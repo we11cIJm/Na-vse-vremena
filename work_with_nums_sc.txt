@@ -1,0 +1,254 @@
+
+theme:/
+
+    state: ВоВремена
+        state: ВыборВремени # ВыборТемы
+                q: (тема) @duckling.number:: anyText || fromState = /ВоВремена, onlyThisState = true 
+                event: choose_theme || fromState = /ВоВремена, onlyThisState = true
+                
+                if: $request.query != undefined
+                    if: $parseTree._anyText < 1
+                        a: Такой темы нет! Выберите: тема 1, тема 2 или тема 3.
+                        go: /ВоВремена
+                    elseif: $parseTree._anyText > 3
+                        a: Такой темы нет! Выберите: тема 1, тема 2 или тема 3.
+                        go: /ВоВремена
+                    else:
+                        random:
+                            a: Отлично, {{$request.query}} выбрана!
+                            a: Начнем тестирование по {{$request.query}}!
+                            a: {{$request.query}} выбрана!
+                        script:
+                            Topic($parseTree._anyText, $context);
+                            addSuggestions(["ответ 1","вариант 2", "номер 3", "ответ 4", "выход"], $context);
+                        
+                else:
+                    random:
+                            a: Замечательно, тема {{$request.data.eventData.number}}!
+                            a: Проверим ваши знания по теме {{$request.data.eventData.number}}.
+                            a: {{$request.data.eventData.number}}!
+                    script:
+                        addSuggestions(["ответ 1","вариант 2", "номер 3", "ответ 4", "выход"], $context);
+                
+    
+                state: ПравильныйОтвет
+                        q: [ответ|вариант|номер]
+                            @duckling.number:: anyText
+                        event: answer
+                        if: $request.query != undefined
+                            if: $parseTree._anyText < 1
+                                a: нет такого ответа!
+                            elseif: $parseTree._anyText > 4
+                                a: нет такого ответа!
+                            else:
+                                random:
+                                    a: ответ записан!
+                                    a: ответ принят!
+                                    a: вариант записан!
+                                    a: вариант принят!
+                                script:
+                                    Answer($parseTree._anyText, $context);
+                                    addSuggestions(["ответ 1","вариант 2", "номер 3", "ответ 4", "выход"], $context);
+                        else:
+                            random:
+                                a: ответ записан!
+                                a: ответ принят!
+                                a: вариант записан!
+                                a: вариант принят! 
+                            script:
+                                addSuggestions(["ответ 1","вариант 2", "номер 3", "ответ 4", "выход"], $context);
+                                
+                                
+                                
+                state: СледующийВопрос
+                        q: (далее|следующий|вперед) [вопрос]
+                        event: next
+                        script:
+                            Next($parseTree._anyText, $context);
+                            addSuggestions(["ответ 1","вариант 2", "номер 3", "ответ 4", "выход"], $context);
+                            
+                state: Меню
+                        q: [список тем| меню| играть снова]
+                        event: menu
+                        script:
+                            Menu($parseTree._anyText, $context);
+                            addSuggestions(["список тем","выход"], $context);
+        
+    
+    state: Теория
+        q!: (теория) @duckling.number:: anyText
+        event: choose_theory
+
+        if: $request.query != undefined
+            if: $parseTree._anyText < 1
+                a: Такой теории нет! Выберите: теория 1, теория 2 или теория 3.
+                # go: /ВоВремена
+            elseif: $parseTree._anyText > 3
+                a: Такой теории нет! Выберите: теория 1, теория 2 или теория 3.
+                #go: /ВоВремена
+            else:
+                random:
+                    a: Отлично, {{$request.query}} выбрана!
+                    a: Показываю теорию {{$request.query}}!
+                    a: {{$request.query}} выбрана!
+                script:
+                    Theory($parseTree._anyText, $context);
+                    addSuggestions(["выход"], $context);
+                
+        else:
+            random:
+                a: Замечательно, {{$request.data.eventData.number}}!
+                a: Показываю теорию {{$request.data.eventData.number}}.
+                a: {{$request.data.eventData.number}}!
+            script:
+                Theory($parseTree._anyText, $context);
+                addSuggestions(["выход"], $context);
+        state: Меню
+            q: [список тем| меню| играть снова]
+            event: menu
+            script:
+                Menu($parseTree._anyText, $context);
+                addSuggestions(["список тем","выход"], $context);
+
+    
+    state: СписокТем
+        q!: (~список тем| ~играть снова)
+        event: list_of_tense
+        random:
+            a:Список уже на экране
+        script:
+            returnTopics($parseTree._anyText, $context);
+            addSuggestions(["тема 1", "помощь","выход"], $context);
+        go: /ВоВремена
+        state: ВоВремена
+            state: ВыборВремени
+                    q: (~тема) 
+                     @duckling.number:: anyText || fromState = /ВоВремена, onlyThisState = true 
+                    event: choose_theme || fromState = /ВоВремена, onlyThisState = true
+                    
+                    if: $request.query != undefined
+                        if: $parseTree._anyText < 1
+                            a: Такой темы нет! Выберите: тема 1, тема 2 или тема 3.
+                            go: /ВоВремена
+                        elseif: $parseTree._anyText > 4
+                            a: Такой темы нет! Выберите: тема 1, тема 2 или тема 3.
+                            go: /ВоВремена
+                        else:
+                            random:
+                                a: Отлично, {{$request.query}} выбрана!
+                                a: Начнем тестирование {{$request.query}}!
+                                a: {{$request.query}} выбрана!
+                            script:
+                                Topic($parseTree._anyText, $context);
+                                addSuggestions(["ответ 1","вариант 2", "номер 3", "ответ 4", "выход"], $context);
+                    else:
+                        random:
+                            a: Замечательно, тема {{$request.data.eventData.number}}!
+                            a: Проверим ваши знания {{$request.data.eventData.number}}.
+                            a: {{$request.data.eventData.number}}!
+                            script:
+                                addSuggestions(["ответ 1","вариант 2", "номер 3", "ответ 4", "выход"], $context);
+                    
+        
+                    state: ПравильныйОтвет
+                            q: [ответ|вариант|номер]
+                                @duckling.number:: anyText
+                            event: answer
+                            if: $request.query != undefined
+                                if: $parseTree._anyText < 1
+                                    a: нет такого ответа!
+                                elseif: $parseTree._anyText > 4
+                                    a: нет такого ответа!
+                                else:
+                                    random:
+                                        a: ответ записан!
+                                        a: ответ принят!
+                                        a: вариант записан!
+                                        a: вариант принят!
+                                    script:
+                                        addNote($parseTree._anyText, $context);
+                                        addSuggestions(["ответ 1","вариант 2", "номер 3", "ответ 4", "выход"], $context);
+                            else:
+                                random:
+                                    a: ответ записан!
+                                    a: ответ принят!
+                                    a: вариант записан!
+                                    a: вариант принят! 
+                                script:
+                                     addSuggestions(["ответ 1","вариант 2", "номер 3", "ответ 4", "выход"], $context);
+                                
+                    
+                                    
+                            
+    state: ПокажиРезультаты || noContext = true
+        q!: [покажи](~результаты|~результат)
+        event!: show_res
+        random:
+            a:Уже на экране!
+            a:Сейчас покажу!
+            a:Конечно!
+        if: $request.query != undefined
+            script:
+                showResults($parseTree._anyText, $context);
+                addSuggestions(["сброс","список тем","выход"], $context);
+        else:
+            script:
+                addSuggestions(["сброс","список тем","выход"], $context);
+                
+            
+    state: СбросРезультатов || noContext = true
+        q!: (сброс)[результатов][результат]
+        event!: del_res
+        random:
+            a:Сделано!
+        if: $request.query != undefined
+            script:
+                resetResults($parseTree._anyText, $context);
+                addSuggestions(["сброс","список тем","выход"], $context);
+        else:
+            script:
+                addSuggestions(["сброс","список тем","выход"], $context);
+    
+    state: help || noContext=true
+        q!: (помощь)
+        a:  Чтобы начать тестирование, необходимо выбрать одну из предпочтительных тем и нажать на кнопку или сказать слово ТЕМА ее номер.
+            Переключение между вопросами происходит после ответа на вопрос и нажатия на кнопку "Следующий вопрос".
+            Кнопка «Список времен» возвращает к темам.
+        script:
+            addSuggestions(["список тем","выход"], $context);
+        
+        
+    state: can || noContext=true
+        q!: (что ты умеешь)
+        a: Я умею оценивать ваши знания по теме времена английского языка!
+        script:
+            addSuggestions(["список тем","выход"], $context);
+            
+    
+
+    state: Goodbye
+        q!: (~выход|~выйти)
+        event: close
+        a: Всего доброго!
+        script:
+            $response.replies.push({
+                type: 'raw',
+                body: {
+                    items: [
+                        {
+                            "command": {
+                                "type": "close_app"
+                            }
+                        }
+                    ],
+                },
+            });
+            $jsapi.stopSession();    
+       
+    state: CallBack || noContext=true
+        event!: noMatch
+        random:
+            a: Можете воспользоваться командой "помощь", чтобы получить подробную инструкцию
+        script:
+            addSuggestions(["список тем", "выход"], $context);
+                    
