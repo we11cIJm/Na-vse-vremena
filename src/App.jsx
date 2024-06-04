@@ -34,54 +34,54 @@ import {useSpatnavInitialization, useSection} from '@salutejs/spatial';
 //import { Page } from './pages/Page.jsx';
 
 
-const Ap = () => {
-  useSpatnavInitialization();
-  const [theoryProps] = useSection('theory');
-  const [testsProps] = useSection('tests');
-
-
-  return (
-      <>
-        <div {...theoryProps}>
-          <div className="sn-section-item" tabIndex={-1}>
-            <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('прошедшее')}
-            />
-          </div>
-          <div className="sn-section-item" tabIndex={-1}>
-            <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('настоящее')}
-                    className="theory-button"/>
-          </div>
-          <div>
-            <div>
-              <div className="sn-section-item" tabIndex={-1}>
-                <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('будущее')}
-                        className="theory-button"/>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div {...testsProps}>
-          <div className="sn-section-item" tabIndex={-1}>
-            <Button text="Past" size="s" onClick={() => toStartQuiz('прошедшее')} className="menu-btn"/>
-          </div>
-          <div className="sn-section-item" tabIndex={-1}>
-            <Button text="Present" size="s" onClick={() => toStartQuiz('настоящее')}
-                    className="menu-btn"/>
-          </div>
-          <div>
-            <div>
-              <div className="sn-section-item" tabIndex={-1}>
-                <Button text="Future" size="s" onClick={() => toStartQuiz('будущее')} className="menu-btn"/>
-              </div>
-            </div>
-          </div>
-        </div>
-      </>
-  );
-  // return <Page />;
-};
+// const Ap = () => {
+//   useSpatnavInitialization();
+//   const [theoryProps] = useSection('theory');
+//   const [testsProps] = useSection('tests');
+//
+//
+//   return (
+//       <>
+//         <div {...theoryProps}>
+//           <div className="sn-section-item" tabIndex={-1}>
+//             <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('прошедшее')}
+//             />
+//           </div>
+//           <div className="sn-section-item" tabIndex={-1}>
+//             <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('настоящее')}
+//                     className="theory-button"/>
+//           </div>
+//           <div>
+//             <div>
+//               <div className="sn-section-item" tabIndex={-1}>
+//                 <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('будущее')}
+//                         className="theory-button"/>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//
+//
+//         <div {...testsProps}>
+//           <div className="sn-section-item" tabIndex={-1}>
+//             <Button text="Past" size="s" onClick={() => toStartQuiz('прошедшее')} className="menu-btn"/>
+//           </div>
+//           <div className="sn-section-item" tabIndex={-1}>
+//             <Button text="Present" size="s" onClick={() => toStartQuiz('настоящее')}
+//                     className="menu-btn"/>
+//           </div>
+//           <div>
+//             <div>
+//               <div className="sn-section-item" tabIndex={-1}>
+//                 <Button text="Future" size="s" onClick={() => toStartQuiz('будущее')} className="menu-btn"/>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </>
+//   );
+//   // return <Page />;
+// };
 
 //пульт
 
@@ -141,7 +141,7 @@ function App() {
   const childRef = useRef(null);
   const assistantStateRef = useRef();
   const assistantRef = useRef();
-
+  useSpatnavInitialization();
 
   useEffect(() => {
     navigate('/');
@@ -316,7 +316,6 @@ function App() {
         <Route path="/theory/2" element={<PresentTheory assistant_global={assistant_global} />} />
         <Route path="/theory/3" element={<FutureTheory assistant_global={assistant_global} />} />
       </Routes>
-      <Ap />
     </div>
   );
 

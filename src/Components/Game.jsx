@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import data from "../Content/questions";
 import { Badge, Button } from "@salutejs/plasma-ui";
+import {useDefaultSectionFocus, useSection} from '@salutejs/spatial';
 
 const Game = React.forwardRef((props, ref) => {
   const location = useLocation();

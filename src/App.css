@@ -17,14 +17,21 @@ body,
     background-image: url("Content/index.jpg");
     /*background-image: url("Content/grammar.png");*/
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center;
     background-attachment: fixed;
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
     background-size: cover;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .quiz-text {
+    width: 100%;
+    height: 100%;
     padding-top: 280px;
     color: white;
     text-align: center;
@@ -35,10 +42,14 @@ body,
 }
 
 .types {
+    width: 100%;
+    height: 100%;
     display: flex;
+    /*background-attachment: fixed;*/
     flex-direction: column;
     align-items: center;
-    margin: 40px;
+    /*margin: 40px;*/
+    /*margin: 50%;*/
     /*background-color: rgba(87, 85, 75, 0.6);*/
     /*width: 800px;*/
     justify-content: center;
@@ -113,7 +124,9 @@ body,
 
 .theory-page {
     width: 100vw;
+    /*width: 100%;*/
     height: 88vh;
+    /*height: 100%;*/
     display: flex;
     justify-content: center;
     align-items: center;

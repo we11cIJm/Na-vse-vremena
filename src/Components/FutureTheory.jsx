@@ -1,23 +1,28 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import futureTheoryImage from "../Content/future_theory.png";
+import {useDefaultSectionFocus, useSection} from '@salutejs/spatial';
 
 const FutureTheory = () => {
     const navigate = useNavigate();
-
+    const [theoryProps] = useSection('futureTheory');
     const goToMainMenu = () => {
         navigate("/");
     };
 
+    useDefaultSectionFocus('futureTheory');
+
     return (
-        <div className="theory-page">
-            <img src={futureTheoryImage} alt="Future Theory" className="theory-page"/>
-            <button onClick={goToMainMenu} className="back-button-invisible">
-                Список времён
-            </button>
-            <button onClick={goToMainMenu} className="back-button">
-                Список времён
-            </button>
+        <div {...theoryProps}>
+            <div className="theory-page">
+                <img src={futureTheoryImage} alt="Future Theory" className="theory-page"/>
+                <button onClick={goToMainMenu} className="sn-section-item back-button-invisible" tabIndex={-1}>
+                    Список времён
+                </button>
+                <button onClick={goToMainMenu} className="sn-section-item back-button" tabIndex={-1}>
+                    Список времён
+                </button>
+            </div>
         </div>
     );
 };
