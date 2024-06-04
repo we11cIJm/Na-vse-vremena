@@ -1,5 +1,7 @@
 import './App.css';
 import Menu from './Components/Menu';
+import toStartQuiz from './Components/Menu';
+import showTheory from './Components/Menu';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -26,19 +28,76 @@ import { darkJoy, darkEva, darkSber } from '@salutejs/plasma-tokens/themes';
 import { text, background, gradient } from '@salutejs/plasma-tokens';
 import { createGlobalStyle } from 'styled-components';
 
+//пульт
+
+import {useSpatnavInitialization, useSection} from '@salutejs/spatial';
+//import { Page } from './pages/Page.jsx';
+
+
+const Ap = () => {
+  useSpatnavInitialization();
+  const [theoryProps] = useSection('theory');
+  const [testsProps] = useSection('tests');
+
+
+  return (
+      <>
+        <div {...theoryProps}>
+          <div className="sn-section-item" tabIndex={-1}>
+            <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('прошедшее')}
+            />
+          </div>
+          <div className="sn-section-item" tabIndex={-1}>
+            <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('настоящее')}
+                    className="theory-button"/>
+          </div>
+          <div>
+            <div>
+              <div className="sn-section-item" tabIndex={-1}>
+                <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('будущее')}
+                        className="theory-button"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div {...testsProps}>
+          <div className="sn-section-item" tabIndex={-1}>
+            <Button text="Past" size="s" onClick={() => toStartQuiz('прошедшее')} className="menu-btn"/>
+          </div>
+          <div className="sn-section-item" tabIndex={-1}>
+            <Button text="Present" size="s" onClick={() => toStartQuiz('настоящее')}
+                    className="menu-btn"/>
+          </div>
+          <div>
+            <div>
+              <div className="sn-section-item" tabIndex={-1}>
+                <Button text="Future" size="s" onClick={() => toStartQuiz('будущее')} className="menu-btn"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+  );
+  // return <Page />;
+};
+
+//пульт
+
+
 const ThemeBackgroundEva = createGlobalStyle(darkEva);
 const ThemeBackgroundSber = createGlobalStyle(darkSber);
 const ThemeBackgroundJoy = createGlobalStyle(darkJoy);
 
 
-
 const DocStyles = createGlobalStyle`
-html {
+  html {
     color: ${text};
     background-color: ${background};
     background-image: ${gradient};
     min-height: 100vh;
-}
+  }
 `;
 
 // const router = createBrowserRouter([
@@ -57,23 +116,32 @@ html {
 // ]);
 
 function App() {
+  document.addEventListener("DOMContentLoaded", function() {
+    let currentDate = document.querySelector("theory");
+    // rest of your code goes here
+  });
+
   const [character, setCharacter] = useState('sber');
   const [page, setPage] = useState(0);
   const navigate = useNavigate();
   const initialize = (getState) => {
     if (process.env.NODE_ENV === "development") {
+
       return createSmartappDebugger({
         token: process.env.REACT_APP_TOKEN ?? "",
         initPhrase: `Запусти ${process.env.REACT_APP_SMARTAPP}`,
         getState,
+
       });
     }
     return createAssistant({ getState });
   };
 
+
   const childRef = useRef(null);
   const assistantStateRef = useRef();
   const assistantRef = useRef();
+
 
   useEffect(() => {
     navigate('/');
@@ -99,6 +167,7 @@ function App() {
   const handleAssistantDataEventSmartAppData = (event) => {
     console.log('AssistantWrapper.handleAssistantEventSmartAppData: event:', event);
 
+
     if (event.sub !== undefined) {
       // this.emit('event-sub', event.sub);
       // /*await*/ this._App.handleAssistantSub(event.sub);
@@ -106,6 +175,7 @@ function App() {
 
     const action = event.action;
     dispatchAssistantAction(action);
+
   }
 
   const dispatchAssistantAction = (action) => {
@@ -246,8 +316,10 @@ function App() {
         <Route path="/theory/2" element={<PresentTheory assistant_global={assistant_global} />} />
         <Route path="/theory/3" element={<FutureTheory assistant_global={assistant_global} />} />
       </Routes>
+      <Ap />
     </div>
   );
+
 }
 
 export default App;
