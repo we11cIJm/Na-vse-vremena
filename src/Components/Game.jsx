@@ -226,7 +226,7 @@ const Game = React.forwardRef((props, ref) => {
             </p>
             <Button size="l" view="primary" onClick={toMenu}
               focused={true}>
-              Попробовать снова
+              Список времён
             </Button>
           </div>
         )}
