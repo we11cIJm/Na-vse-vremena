@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useRef, useState} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import data from "../Content/questions";
 import { Badge, Button } from "@salutejs/plasma-ui";
@@ -7,7 +7,16 @@ import {useDefaultSectionFocus, useSection} from '@salutejs/spatial';
 const Game = React.forwardRef((props, ref) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [ansProps] = useSection('ans');
+  // const [nextProps] = useSection('next');
+  // const [tryProps] = useSection('try');
   const type = location.state.Type;
+  // const nextButtonRef = useRef(null);
+
+  useDefaultSectionFocus('ans');
+  // useDefaultSectionFocus('try');
+  // useDefaultSectionFocus('ans', {default: nextButtonRef });
+  // useDefaultSectionFocus('next');
 
   let gameClass = "";
   let header = "";
@@ -120,12 +129,14 @@ const Game = React.forwardRef((props, ref) => {
 
   return (
     <div className={"game " + gameClass}>
+      <div {...ansProps}>
       <div className="question-block">
         <h1 style={{ margin: "0" }}>{header}</h1>
 
         {gameState == "game" ? (
           <>
             <h4 style={{ textAlign: "center" }}>Вопрос {currentQuestIdx + 1} из {questions.length}: {currentQuest.question}</h4>
+            {/*<div {...ansProps}>*/}
             <div className="answers">
               <div>
                 <Button
@@ -186,24 +197,28 @@ const Game = React.forwardRef((props, ref) => {
                 </Button>
               </div>
             </div>
+            {/*</div>*/}
 
-            <div>
-              <Button
-                size="s"
-                view="primary"
-                onClick={nextQuestion}
-                disabled={currentAnswer == null}
-                focused={currentAnswer != null}
-              >
-                Следующий вопрос
-              </Button>
-              <Button size="s" view="secondary" onClick={toMenu}>
-                Список времён
-              </Button>
-            </div>
-          </>
-        ) : (
-          <div className="results-block">
+            {/*<div {...nextProps}>*/}
+              <div>
+                <Button
+                    size="s"
+                    view="primary"
+                    onClick={nextQuestion}
+                    disabled={currentAnswer == null}
+                    //focused={currentAnswer != null}
+                    // ref={nextButtonRef}
+                >
+                  Следующий вопрос
+                </Button>
+                <Button size="s" view="secondary" onClick={toMenu}>
+                  Список времён
+                </Button>
+              </div>
+            {/*</div>*/}
+            </>
+            ) : (
+            <div className="results-block">
             <p className="results-comment">{getComment()}</p>
             <p className="results-comment">Верных ответов</p>
             <p className="corr-ans-count">
@@ -215,6 +230,7 @@ const Game = React.forwardRef((props, ref) => {
             </Button>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

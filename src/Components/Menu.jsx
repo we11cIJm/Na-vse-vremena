@@ -18,29 +18,29 @@ function Menu({assistant_global}) {
         assistant_global(type, 'choose_theory')
     }
 
-    // useDefaultSectionFocus('menu');
+    useDefaultSectionFocus('menu');
 
     return (
-        <div {...menuProps}>
-            <div className="Menu">
-                <h1 className="quiz-text">Выбери время:</h1>
+        <div className="Menu">
+            <h1 className="quiz-text">Выбери время:</h1>
+            <div {...menuProps}>
                 <div className="types">
-                    <div style={{display: 'flex', alignItems: 'center', marginBottom: '50%'}}>
+                    <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
                         <Button text="Past" size="s" onClick={() => toStartQuiz('прошедшее')}
-                                className="menu-btn"/>
+                                className="sn-section-item menu-btn" tabIndex={-1}/>
                         <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('прошедшее')}
-                                className="theory-button"/>
+                                className="sn-section-item theory-button" tabIndex={-1}/>
                     </div>
-                    <div style={{display: 'flex', alignItems: 'center'}}>
+                    <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
                         <Button text="Present" size="s" onClick={() => toStartQuiz('настоящее')}
-                                className="menu-btn"/>
+                                className="sn-section-item menu-btn" tabIndex={-1}/>
                         <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('настоящее')}
-                                className="theory-button"/>
+                                className="sn-section-item theory-button" tabIndex={-1}/>
                     </div>
-                    <div style={{display: 'flex', alignItems: 'center'}}>
-                        <Button text="Future" size="s" onClick={() => toStartQuiz('будущее')} className="menu-btn"/>
+                    <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
+                        <Button text="Future" size="s" onClick={() => toStartQuiz('будущее')} className="sn-section-item menu-btn" tabIndex={-1}/>
                         <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('будущее')}
-                                className="theory-button"/>
+                                className="sn-section-item theory-button" tabIndex={-1}/>
                     </div>
                     {/*8888888888888888888888888*/}
                     {/*<div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>*/}
