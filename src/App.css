@@ -36,7 +36,7 @@ body,
     margin: 0;
     /*background-color: rgba(87, 85, 75, 0.6);*/
     /*width: 800px;*/
-    /* justify-content: center; **/ 
+    /* justify-content: center; **/
 }
 
 .types {
@@ -116,68 +116,10 @@ body,
     background-image: url("Content/practice.jpg");
 }
 
-/*.theory-page {*/
-/*    width: 100vw;*/
-/*    height: 88vh;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.theory-image {*/
-/*    max-width: calc(100% - 60px); !* Adjust the frame size *!*/
-/*    max-height: calc(100% - 60px); !* Adjust the frame size *!*/
-/*    border: 15px solid #ccc; !* Frame style *!*/
-/*    box-sizing: border-box; !* Ensure the frame size is included in the overall size *!*/
-/*}*/
-
 .theory-button {
     font-weight: bold;
     font-size: 24px;
 }
-
-/*.back-button-invisible {*/
-/*    position: absolute;*/
-/*    top: 46%;*/
-/*    left: 50%;*/
-/*    transform: translate(-50%, -50%);*/
-/*    !*background: none;*!*/
-/*    !*color: white;*!*/
-/*    font-weight: 600;*/
-/*    padding: 50px 90px;*/
-/*    border: 1px solid white;*/
-/*    border-radius: 3px;*/
-/*    cursor: pointer;*/
-/*    opacity: 0;*/
-/*    transition: opacity 0.3s ease;*/
-/*}*/
-
-/*.back-button {*/
-/*    position: absolute;*/
-/*    top: 20px;*/
-/*    right: 20px;*/
-/*    background-color: rgb(47, 207, 47);*/
-/*    !*background-color: #ffffff;*!*/
-/*    !*color: #000000;*!*/
-/*    color: white;*/
-/*    border: 1px solid white;*/
-/*    padding: 10px 20px;*/
-/*    !*border: none;*!*/
-/*    border-radius: 5px;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.back-button span {*/
-/*    font-weight: 600;*/
-/*    font-size: 24px;*/
-/*}*/
-
-/*.back-button:hover {*/
-/*    background-color: var(--plasma-colors-button-accent);*/
-/*    color: black;*/
-/*    background-color: white;*/
-/*    cursor: pointer;*/
-/*}*/
 
 .question-block {
     width: 500px;
