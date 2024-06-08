@@ -26,41 +26,22 @@ function Menu({assistant_global}) {
             <div {...menuProps}>
                 <div className="types">
                     <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
-                        <Button text="Past" size="s" onClick={() => toStartQuiz('прошедшее')}
+                        <Button text="Past" size="s" onClick={() => toStartQuiz(1)}
                                 className="sn-section-item menu-btn" tabIndex={-1}/>
-                        <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('прошедшее')}
+                        <Button text="Theory" size="s" view="secondary" onClick={() => showTheory(1)}
                                 className="sn-section-item theory-button" tabIndex={-1}/>
                     </div>
                     <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
-                        <Button text="Present" size="s" onClick={() => toStartQuiz('настоящее')}
+                        <Button text="Present" size="s" onClick={() => toStartQuiz(2)}
                                 className="sn-section-item menu-btn" tabIndex={-1}/>
-                        <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('настоящее')}
+                        <Button text="Theory" size="s" view="secondary" onClick={() => showTheory(2)}
                                 className="sn-section-item theory-button" tabIndex={-1}/>
                     </div>
                     <div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>
-                        <Button text="Future" size="s" onClick={() => toStartQuiz('будущее')} className="sn-section-item menu-btn" tabIndex={-1}/>
-                        <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('будущее')}
+                        <Button text="Future" size="s" onClick={() => toStartQuiz(3)} className="sn-section-item menu-btn" tabIndex={-1}/>
+                        <Button text="Theory" size="s" view="secondary" onClick={() => showTheory(3)}
                                 className="sn-section-item theory-button" tabIndex={-1}/>
                     </div>
-                    {/*8888888888888888888888888*/}
-                    {/*<div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>*/}
-                    {/*    <Button text="Past" size="s" onClick={() => toStartQuiz('прошедшее')}*/}
-                    {/*            className="sn-section-item menu-btn" tabIndex={-1}/>*/}
-                    {/*    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('прошедшее')}*/}
-                    {/*            className="sn-section-item theory-button" tabIndex={-1}/>*/}
-                    {/*</div>*/}
-                    {/*<div style={{display: 'flex', alignItems: 'center', marginBottom: '10px'}}>*/}
-                    {/*    <Button text="Present" size="s" onClick={() => toStartQuiz('настоящее')}*/}
-                    {/*            className="sn-section-item menu-btn" tabIndex={-1}/>*/}
-                    {/*    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('настоящее')}*/}
-                    {/*            className="sn-section-item theory-button" tabIndex={-1}/>*/}
-                    {/*</div>*/}
-                    {/*<div style={{display: 'flex', alignItems: 'center'}}>*/}
-                    {/*    <Button text="Future" size="s" onClick={() => toStartQuiz('будущее')}*/}
-                    {/*            className="sn-section-item menu-btn" tabIndex={-1}/>*/}
-                    {/*    <Button text="Theory" size="s" view="secondary" onClick={() => showTheory('будущее')}*/}
-                    {/*            className="sn-section-item theory-button" tabIndex={-1}/>*/}
-                    {/*</div>*/}
                 </div>
             </div>
         </div>
