@@ -1,35 +1,3 @@
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import presentTheoryImage from "../Content/present_theory.png";
-// import {useDefaultSectionFocus, useSection} from '@salutejs/spatial';
-//
-// const PresentTheory = () => {
-//     const navigate = useNavigate();
-//     const [theoryProps] = useSection('presentTheory');
-//
-//     const goToMainMenu = () => {
-//         navigate("/");
-//     };
-//
-//     useDefaultSectionFocus('presentTheory');
-//
-//     return (
-//         <div {...theoryProps}>
-//             <div className="theory-page">
-//                 {/*<img src={presentTheoryImage} alt="Present Theory" className="theory-page"/>*/}
-//                 <button onClick={goToMainMenu} className="sn-section-item back-button" tabIndex={-1}>
-//                     Список времён
-//                 </button>
-//                 {/*<button onClick={goToMainMenu} className="sn-section-item back-button-invisible" tabIndex={-1}>*/}
-//                 {/*    Список времён*/}
-//                 {/*</button>*/}
-//             </div>
-//         </div>
-//     );
-// };
-//
-// export default PresentTheory;
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDefaultSectionFocus, useSection } from '@salutejs/spatial';
@@ -58,16 +26,16 @@ const PresentTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + am/is/are + predicate...</p>
-                                    <p>+ S + verb + object...</p>
+                                    <p>Affirmative: S + am/is/are + predicate...</p>
+                                    <p>Affirmative: S + verb + object...</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + am/is/are + not + predicate...</p>
-                                    <p>- S + don’t/doesn’t + verb + object...</p>
+                                    <p>Negative: S + am/is/are + not + predicate...</p>
+                                    <p>Negative: S + don’t/doesn’t + verb + object...</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Am/Is/Are + S + predicate?</p>
-                                    <p>? Do/Does + S + verb + object?</p>
+                                    <p>Interrogative: Am/Is/Are + S + predicate?</p>
+                                    <p>Interrogative: Do/Does + S + verb + object?</p>
                                 </div>
                             </div>
                         </div>
@@ -99,13 +67,13 @@ const PresentTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + am/is/are + V-ing</p>
+                                    <p>Affirmative: S + am/is/are + V-ing</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + am/is/are + not + V-ing</p>
+                                    <p>Negative: S + am/is/are + not + V-ing</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Am/Is/Are + S + V-ing?</p>
+                                    <p>Interrogative: Am/Is/Are + S + V-ing?</p>
                                 </div>
                             </div>
                         </div>
@@ -137,13 +105,13 @@ const PresentTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + have/has + past participle</p>
+                                    <p>Affirmative: S + have/has + past participle</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + have/has + not + past participle</p>
+                                    <p>Negative: S + have/has + not + past participle</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Have/Has + S + past participle?</p>
+                                    <p>Interrogative: Have/Has + S + past participle?</p>
                                 </div>
                             </div>
                         </div>
@@ -175,13 +143,13 @@ const PresentTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + have/has + been + V-ing</p>
+                                    <p>Affirmative: S + have/has + been + V-ing</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + have/has + not + been + V-ing</p>
+                                    <p>Negative: S + have/has + not + been + V-ing</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Have/Has + S + been + V-ing?</p>
+                                    <p>Interrogative: Have/Has + S + been + V-ing?</p>
                                 </div>
                             </div>
                         </div>

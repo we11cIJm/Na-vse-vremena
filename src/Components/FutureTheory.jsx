@@ -1,34 +1,3 @@
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import futureTheoryImage from "../Content/future_theory.png";
-// import {useDefaultSectionFocus, useSection} from '@salutejs/spatial';
-//
-// const FutureTheory = () => {
-//     const navigate = useNavigate();
-//     const [theoryProps] = useSection('futureTheory');
-//     const goToMainMenu = () => {
-//         navigate("/");
-//     };
-//
-//     useDefaultSectionFocus('futureTheory');
-//
-//     return (
-//         <div {...theoryProps}>
-//             <div className="theory-page">
-//                 <img src={futureTheoryImage} alt="Future Theory" className="theory-page"/>
-//                 {/*<button onClick={goToMainMenu} className="sn-section-item back-button-invisible" tabIndex={-1}>*/}
-//                 {/*    Список времён*/}
-//                 {/*</button>*/}
-//                 <button onClick={goToMainMenu} className="sn-section-item back-button" tabIndex={-1}>
-//                     Список времён
-//                 </button>
-//             </div>
-//         </div>
-//     );
-// };
-//
-// export default FutureTheory;
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDefaultSectionFocus, useSection } from '@salutejs/spatial';
@@ -57,13 +26,13 @@ const FutureTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + will/shall + V (base form)</p>
+                                    <p>Affirmative: S + will/shall + V (base form)</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + will not/won’t + V (base form)</p>
+                                    <p>Negative: S + will not/won’t + V (base form)</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Will + S + V (base form)?</p>
+                                    <p>Interrogative: Will + S + V (base form)?</p>
                                 </div>
                             </div>
                         </div>
@@ -95,13 +64,13 @@ const FutureTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + will be + V-ing</p>
+                                    <p>Affirmative: S + will be + V-ing</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + will not be + V-ing</p>
+                                    <p>Negative: S + will not be + V-ing</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Will + S + be + V-ing?</p>
+                                    <p>Interrogative: Will + S + be + V-ing?</p>
                                 </div>
                             </div>
                         </div>
@@ -135,13 +104,13 @@ const FutureTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + will have + past participle</p>
+                                    <p>Affirmative: S + will have + past participle</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + will not have + past participle</p>
+                                    <p>Negative: S + will not have + past participle</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Will + S + have + past participle?</p>
+                                    <p>Interrogative: Will + S + have + past participle?</p>
                                 </div>
                             </div>
                         </div>
@@ -173,13 +142,13 @@ const FutureTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + will have been + V-ing</p>
+                                    <p>Affirmative: S + will have been + V-ing</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + will not have been + V-ing</p>
+                                    <p>Negative: S + will not have been + V-ing</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Will + S + have been + V-ing?</p>
+                                    <p>Interrogative: Will + S + have been + V-ing?</p>
                                 </div>
                             </div>
                         </div>

@@ -1,171 +1,3 @@
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import pastTheoryImage from "../Content/past_theory.png";
-// import {useDefaultSectionFocus, useSection} from '@salutejs/spatial';
-//
-// const PastTheory = () => {
-//
-//     const navigate = useNavigate();
-//     const [theoryProps] = useSection('pastTheory');
-//
-//     const goToMainMenu = () => {
-//         navigate("/");
-//     };
-//
-//     useDefaultSectionFocus('pastTheory');
-//
-//     return (
-//         <div {...theoryProps}>
-//             <div className="theory-page">
-//                 <img src={pastTheoryImage} alt="Past Theory" className="theory-page"/>
-//                 <button onClick={goToMainMenu} className="sn-section-item back-button-invisible" tabIndex={-1}>
-//                     Список времён
-//                 </button>
-//                 <button onClick={goToMainMenu} className="sn-section-item back-button" tabIndex={-1}>
-//                     Список времён
-//                 </button>
-//             </div>
-//         </div>
-//     );
-// };
-//
-// export default PastTheory;
-
-/********************************************************************************************************************/
-
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import { useDefaultSectionFocus, useSection } from '@salutejs/spatial';
-// // import '../App.css';
-// import '../PastTheory.css';
-//
-// const PastTheory = () => {
-//
-//     const navigate = useNavigate();
-//     const [theoryProps] = useSection('pastTheory');
-//
-//     const goToMainMenu = () => {
-//         navigate("/");
-//     };
-//
-//     useDefaultSectionFocus('pastTheory');
-//
-//     return (
-//         // <div {...theoryProps}>
-//         <div className="theory-page">
-//             <div className="container">
-//                 <h1 className="header">Past Tense Theory</h1>
-//
-//                 <div className="card">
-//                     <h2>Simple Past</h2>
-//                     <div className="card-section">
-//                         <h3>Structure</h3>
-//                         <p>+ S + was/were</p>
-//                         <p>+ S + V-ed</p>
-//                         <p>- S + was not/were not + ...</p>
-//                         <p>- S + did not + verb (base form)</p>
-//                         <p>? Was/Were + S + ...?</p>
-//                         <p>? Did + S + verb (in base form)?</p>
-//                     </div>
-//                     <div className="card-section">
-//                         <h3>Usage</h3>
-//                         <p>To express completed action in the past</p>
-//                         <p>To describe a series of completed actions in the past</p>
-//                         <p>To express habits in the past</p>
-//                         <p>For stative verbs (have, own, be, think, believe, know, dislike, need, owe, wish)</p>
-//                     </div>
-//                     <div className="card-section">
-//                         <h3>Example</h3>
-//                         <p>I saw a ghost last Friday.</p>
-//                         <p>I finished work, walked to the beach, and found a nice place to swim.</p>
-//                         <p>When I was young, I watched lots of television every day after school.</p>
-//                         <p>He had a small cottage in the woods.</p>
-//                     </div>
-//                 </div>
-//
-//                 <div className="card">
-//                     <h2>Past Continuous</h2>
-//                     <div className="card-section">
-//                         <h3>Structure</h3>
-//                         <p>+ S + was/were + V-ing</p>
-//                         <p>- S + was/were + not + V-ing</p>
-//                         <p>? Was/were + S + V-ing?</p>
-//                     </div>
-//                     <div className="card-section">
-//                         <h3>Usage</h3>
-//                         <p>To describe parallel actions</p>
-//                         <p>To describe what someone was doing at a particular point in time</p>
-//                         <p>To express interrupted action in the past</p>
-//                         <p>To describe repetition and irritation</p>
-//                     </div>
-//                     <div className="card-section">
-//                         <h3>Example</h3>
-//                         <p>While I was washing the dishes, I heard a loud noise.</p>
-//                         <p>I was working in the garden all day yesterday.</p>
-//                         <p>I was driving to work when I crashed my car.</p>
-//                         <p>He was always complaining in class.</p>
-//                     </div>
-//                 </div>
-//
-//                 <div className="card">
-//                     <h2>Past Perfect</h2>
-//                     <div className="card-section">
-//                         <h3>Structure</h3>
-//                         <p>+ S + had + past participle + ...</p>
-//                         <p>- S + had not/hadn’t + past participle + ...</p>
-//                         <p>? Had + S + past participle + ...?</p>
-//                     </div>
-//                     <div className="card-section">
-//                         <h3>Usage</h3>
-//                         <p>To describe an action finished before another past action</p>
-//                         <p>To describe an action that happened before a specific time in the past</p>
-//                         <p>To describe cause and effect (combine with Past Simple)</p>
-//                         <p>To emphasize the result of an activity in the past</p>
-//                     </div>
-//                     <div className="card-section">
-//                         <h3>Example</h3>
-//                         <p>Richard had gone out when his wife arrived in the office.</p>
-//                         <p>Christine had never been to an opera before last night.</p>
-//                         <p>I got stuck in traffic because there had been an accident.</p>
-//                         <p>I had been to London twice by the time I got a job in New York.</p>
-//                     </div>
-//                 </div>
-//
-//                 <div className="card">
-//                     <h2>Past Perfect Continuous</h2>
-//                     <div className="card-section">
-//                         <h3>Structure</h3>
-//                         <p>+ S + had + been + V-ing</p>
-//                         <p>- S + had not/hadn’t + been + V-ing</p>
-//                         <p>? Had + S + been + V-ing?</p>
-//                     </div>
-//                     <div className="card-section">
-//                         <h3>Usage</h3>
-//                         <p>To describe a past action, already started and continued up to another action or time in the
-//                             past</p>
-//                         <p>To express the duration before something in the past</p>
-//                         <p>To describe the cause of something in the past</p>
-//                     </div>
-//                     <div className="card-section">
-//                         <h3>Example</h3>
-//                         <p>The boys had been playing soccer for about an hour when it started to rain.</p>
-//                         <p>Richard needed a holiday because he had been working hard for six months.</p>
-//                         <p>He was tired because he had been jogging.</p>
-//                     </div>
-//                 </div>
-//                 <div {...theoryProps}>
-//                     <button onClick={goToMainMenu} className="sn-section-item back-button" tabIndex={-1}>
-//                         Список времён
-//                     </button>
-//                 </div>
-//
-//             </div>
-//         </div>
-//     );
-// };
-//
-// export default PastTheory;
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDefaultSectionFocus, useSection } from '@salutejs/spatial';
@@ -194,16 +26,16 @@ const PastTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + was/were</p>
-                                    <p>+ S + V-ed</p>
+                                    <p>Affirmative: S + was/were</p>
+                                    <p>Affirmative: S + V-ed</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + was not/were not + ...</p>
-                                    <p>- S + did not + verb (base form)</p>
+                                    <p>Negative: S + was not/were not + ...</p>
+                                    <p>Negative: S + did not + verb (base form)</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Was/Were + S + ...?</p>
-                                    <p>? Did + S + verb (in base form)?</p>
+                                    <p>Interrogative: Was/Were + S + ...?</p>
+                                    <p>Interrogative: Did + S + verb (in base form)?</p>
                                 </div>
                             </div>
                         </div>
@@ -237,13 +69,13 @@ const PastTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + was/were + V-ing</p>
+                                    <p>Affirmative: S + was/were + V-ing</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + was/were + not + V-ing</p>
+                                    <p>Negative: S + was/were + not + V-ing</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Was/were + S + V-ing?</p>
+                                    <p>Interrogative: Was/were + S + V-ing?</p>
                                 </div>
                             </div>
                         </div>
@@ -277,13 +109,13 @@ const PastTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + had + past participle + ...</p>
+                                    <p>Affirmative: S + had + past participle + ...</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + had not/hadn’t + past participle + ...</p>
+                                    <p>Negative: S + had not/hadn’t + past participle + ...</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Had + S + past participle + ...?</p>
+                                    <p>Interrogative: Had + S + past participle + ...?</p>
                                 </div>
                             </div>
                         </div>
@@ -317,13 +149,13 @@ const PastTheory = () => {
                             <div className="card-section structure">
                                 <h3>Structure</h3>
                                 <div className="affirmative">
-                                    <p>+ S + had + been + V-ing</p>
+                                    <p>Affirmative: S + had + been + V-ing</p>
                                 </div>
                                 <div className="negative">
-                                    <p>- S + had not/hadn’t + been + V-ing</p>
+                                    <p>Negative: S + had not/hadn’t + been + V-ing</p>
                                 </div>
                                 <div className="interrogative">
-                                    <p>? Had + S + been + V-ing?</p>
+                                    <p>Interrogative: Had + S + been + V-ing?</p>
                                 </div>
                             </div>
                         </div>
