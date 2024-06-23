@@ -303,6 +303,10 @@ body,
     .results-block {
         font-size: 1.5em;
     }
+
+    .question-block {
+        font-size: 1em;
+    }
 }
 
 @media (min-height: 1900px) {
