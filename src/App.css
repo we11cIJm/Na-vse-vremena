@@ -273,8 +273,8 @@ body,
     }
 
     .game.past > div,
-    .game.future,
-    .game.present {
+    .game.future > div,
+    .game.present > div {
         align-items: center;
         transform: scale(0.70);
         transform-origin: 50% 50%;
@@ -510,4 +510,70 @@ body,
 }
 
 
+@media (width: 1380px) and (height: 800px) {
 
+
+    .quiz-text {
+        font-size: 4.5em; /*выбери время*/
+
+    }
+
+ 
+    .menu-btn span {
+        font-size: 30px; /* кнопка теории */
+ 
+    }
+
+    .answer {
+        font-size: 1.5em; /* Adjust font size for readability */
+    }
+
+    .results-block {
+        font-size: 1em; /* Adjust font size for readability */
+
+    }
+
+    .button-text {
+        margin-right: 10px;
+        min-width: 100px;
+        padding: 0px 12px;
+        font-size: 35px; /* паст пресент */
+
+    }
+    .theory-page > div {
+        font-size: 200%
+    };
+
+    .Menu > div {
+        align-items: center;
+        margin: 55px;
+        transform: scale(1.25);
+
+    }
+    .types > div {
+        font-size: 30px;  /*теория*/
+
+    }
+    .game.past> div {
+        align-items: center;
+        transform: scale(1.6);
+        font-size: 23px;
+
+    }
+
+    .game.future > div {
+        align-items: center;
+        transform: scale(1.6);
+        font-size: 23px;
+
+    }
+
+    .game.present> div {
+        align-items: center;
+        transform: scale(1.6);
+        font-size: 23px;
+    }
+    .sn-section-item.back-button{
+        font-size: 0%;
+    }
+}
