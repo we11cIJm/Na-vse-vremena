@@ -171,7 +171,7 @@ const FutureTheory = () => {
                     </div>
                 </div>
 
-                <button className="sn-section-item back-button" tabIndex={-1} onClick={goToMainMenu}>Список времён</button>
+                <button className="sn-section-item back-button" tabIndex={-1} onClick={goToMainMenu}>Список тем</button>
             </div>
         </div>
     );
