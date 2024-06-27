@@ -4,7 +4,7 @@
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-
+    margin-bottom: 10%;
 }
 
 .container {
@@ -106,9 +106,15 @@
     color: white;
 }
 
+@media (width: 1380px) and (height: 800px) {
+    .container {
+        padding-bottom: 50px
+    }
+}
+
 @media (min-height: 1900px) {
     .container {
-        padding-bottom: 150px;
+        padding-bottom: 50px;
     }
 
     .container {

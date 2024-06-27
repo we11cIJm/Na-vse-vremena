@@ -197,6 +197,7 @@ const Game = React.forwardRef((props, ref) => {
                         view="primary"
                         onClick={nextQuestion}
                         disabled={currentAnswer == null}
+                        style={{ marginRight: '10px' }}
                         //focused={currentAnswer != null}
                     >
                       Следующий вопрос
