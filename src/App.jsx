@@ -169,11 +169,21 @@ function App() {
 
   function assistant_global(command, type) {
     console.log(command, type);
+    
+    const characterDependentResponses = {
+      joy: "ты",
+      eva: "вы",
+      sber: "вы"
+    };
+    
+    const responseStyle = characterDependentResponses[character] || "вы";
+
     assistantRef.current.sendData({
       action: {
         action_id: type,
         parameters: {
-          command
+          command,
+          responseStyle
         }
       }
     });
