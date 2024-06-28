@@ -9,7 +9,7 @@
 
 .container {
     margin: 0 auto;
-    background-color: lightslategrey;
+    background-color: #9526ff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@
 }
 
 .card {
-    background-color: #e3f2fd;
+    background-color: #7d8dff;
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 8px;

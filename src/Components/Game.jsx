@@ -143,7 +143,11 @@ const Game = React.forwardRef((props, ref) => {
                     <div>
                       <Button
                           view="secondary"
-                          onClick={() => checkAnswer(1)}
+                          // onClick={() => checkAnswer(1)}
+                          onClick={() => {
+                            checkAnswer(1);
+                            nextQuestion();
+                          }}
                           disabled={currentAnswer != null}
                           size={'m'}
                           className={
@@ -158,7 +162,11 @@ const Game = React.forwardRef((props, ref) => {
                       <Button
                           view="secondary"
                           size={'m'}
-                          onClick={() => checkAnswer(2)}
+                          // onClick={() => checkAnswer(2)}
+                          onClick={() => {
+                            checkAnswer(2);
+                            nextQuestion();
+                          }}
                           disabled={currentAnswer != null}
                           className={
                               "answer " +
@@ -172,7 +180,11 @@ const Game = React.forwardRef((props, ref) => {
                       <Button
                           size={'m'}
                           view="secondary"
-                          onClick={() => checkAnswer(3)}
+                          // onClick={() => checkAnswer(3)}
+                          onClick={() => {
+                            checkAnswer(3);
+                            nextQuestion();
+                          }}
                           disabled={currentAnswer != null}
                           className={
                               "answer " +
@@ -186,7 +198,11 @@ const Game = React.forwardRef((props, ref) => {
                       <Button
                           size={'m'}
                           view="secondary"
-                          onClick={() => checkAnswer(4)}
+                          // onClick={() => checkAnswer(4)}
+                          onClick={() => {
+                            checkAnswer(4);
+                            nextQuestion();
+                          }}
                           disabled={currentAnswer != null}
                           className={
                               "answer " +
@@ -201,17 +217,19 @@ const Game = React.forwardRef((props, ref) => {
                   </div>
 
                   <div>
-                    <Button
-                        size="s"
-                        view="primary"
-                        onClick={nextQuestion}
-                        disabled={currentAnswer == null}
-                        style={{ marginRight: '10px' }}
-                        //focused={currentAnswer != null}
-                    >
-                      Следующий вопрос
-                    </Button>
-                    <Button size="s" view="secondary" onClick={toMenu}>
+                    {/*<Button*/}
+                    {/*    size="s"*/}
+                    {/*    view="primary"*/}
+                    {/*    onClick={nextQuestion}*/}
+                    {/*    disabled={currentAnswer == null}*/}
+                    {/*    style={{ marginRight: '10px' }}*/}
+                    {/*    //focused={currentAnswer != null}*/}
+                    {/*>*/}
+                    {/*  Следующий вопрос*/}
+                    {/*</Button>*/}
+
+                    {/*<Button size="s" view="secondary" onClick={toMenu}>*/}
+                    <Button size="s" onClick={toMenu}>
                       Список тем
                     </Button>
                   </div>

@@ -6,16 +6,16 @@ import '../Theory.css';
 const PastTheory = () => {
 
     const navigate = useNavigate();
-    // const [theoryProps] = useSection('pastTheory');
+    const [theoryProps] = useSection('pastTheory');
 
     const goToMainMenu = () => {
         navigate("/");
     };
 
-    // useDefaultSectionFocus('pastTheory');
+    useDefaultSectionFocus('pastTheory');
 
     return (
-        <div className="theory-page">
+        <div {...theoryProps} className="theory-page">
             <div className="container">
                 <h1 className="header">Past Tense Theory</h1>
 
@@ -181,9 +181,8 @@ const PastTheory = () => {
                         </div>
                     </div>
                 </div>
-                {/*<div {...theoryProps}>*/}
+
                 <button className="sn-section-item back-button" tabIndex={-1} onClick={goToMainMenu}>Список тем</button>
-                {/*</div>*/}
             </div>
         </div>
     );
