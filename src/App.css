@@ -368,7 +368,7 @@ body,
     }
     .theory-page > div {
         font-size: 200%;
-        background-color: lightslategrey;
+        /*background-color: lightslategrey;*/
     };
 
     .Menu > div {

@@ -8,6 +8,7 @@ const Game = React.forwardRef((props, ref) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [ansProps] = useSection('ans');
+  const assistantRef = useRef();
   const type = location.state.Type;
 
   useDefaultSectionFocus('ans');
@@ -22,27 +23,12 @@ const Game = React.forwardRef((props, ref) => {
       header = "Past";
       questions = data.past.questions;
       break;
-    case "past":
-      gameClass = "past";
-      header = "Past";
-      questions = data.past.questions;
-      break;
     case 2:
       gameClass = "present";
       header = "Present";
       questions = data.present.questions;
       break;
-    case "present":
-      gameClass = "present";
-      header = "Present";
-      questions = data.present.questions;
-      break;
     case 3:
-      gameClass = "future";
-      header = "Future";
-      questions = data.future.questions;
-      break;
-    case "future":
       gameClass = "future";
       header = "Future";
       questions = data.future.questions;
@@ -55,8 +41,8 @@ const Game = React.forwardRef((props, ref) => {
     navigate("/");
   }
 
-  const [currentQuestIdx, setCurrentQuietIdx] = useState(0);
-  const [currentQuest, setCurrentQuiet] = useState(questions[0]);
+  const [currentQuestIdx, setCurrentQuestIdx] = useState(0);
+  const [currentQuest, setCurrentQuest] = useState(questions[0]);
   const [wrongAnswer, setWrongAnswer] = useState(null);
   const [currentAnswer, setCurrentAnswer] = useState(null);
   const [currentAnswersCount, setCountAnswersCount] = useState(0);
@@ -69,6 +55,9 @@ const Game = React.forwardRef((props, ref) => {
         break;
       case "ans":
         checkAnswer(num);
+        break;
+      case "correct_ans":
+        isCorrectAns(num);
         break;
       default:
         break;
@@ -83,21 +72,41 @@ const Game = React.forwardRef((props, ref) => {
 
   function nextQuestion() {
     let newIdx = currentQuestIdx + 1;
-    setCurrentQuietIdx(newIdx);
-    setCurrentQuiet(questions[newIdx]);
+    setCurrentQuestIdx(newIdx);
+    setCurrentQuest(questions[newIdx]);
     setWrongAnswer(null);
     setCurrentAnswer(null);
   }
 
+  function isCorrectAns(num) {
+    if (currentAnswer != null) {
+      return; // Prevent changing the answer after it has been checked
+    }
+    let isCorrect = 0;
+    if (currentQuest.validAnswer === num) {
+      isCorrect = 1;
+    }
+    props.assistant_global(isCorrect, "correct_ans");
+  }
+
   function checkAnswer(num) {
-    if (currentQuest.validAnswer == num) {
+    if (currentAnswer != null) {
+      return; // Prevent changing the answer after it has been checked
+    }
+
+    let isCorrect = (currentQuest.validAnswer === num);
+    if (isCorrect) {
       setCurrentAnswer(num);
       setWrongAnswer(null);
       setCountAnswersCount((x) => x + 1);
+      //props.assistant_global("Правильный ответ", "response"); //
     } else {
       setCurrentAnswer(currentQuest.validAnswer);
       setWrongAnswer(num);
+      //props.assistant_global("Неправильный ответ", "response"); //
     }
+
+    //props.assistant_global({ answer: num, correctAnswer: currentQuest.validAnswer }, "response");
 
     if (currentQuestIdx == questions.length - 1) {
       setGameState("results");
@@ -127,7 +136,7 @@ const Game = React.forwardRef((props, ref) => {
           <div className="question-block">
             <h1 style={{ margin: "0" }}>{header}</h1>
 
-            {gameState == "game" ? (
+            {gameState === "game" ? (
                 <>
                   <h4 style={{ textAlign: "center" }}>Вопрос {currentQuestIdx + 1} из {questions.length}: {currentQuest.question}</h4>
                   <div className="answers">
@@ -139,8 +148,8 @@ const Game = React.forwardRef((props, ref) => {
                           size={'m'}
                           className={
                               "answer " +
-                              (wrongAnswer == 1 ? "incorrect " : "") +
-                              (currentAnswer == "1" ? "correct" : "")
+                              (wrongAnswer === 1 ? "incorrect " : "") +
+                              (currentAnswer === 1 ? "correct" : "")
                           }
                       >
                         <Badge text="1" size="l" />
@@ -153,8 +162,8 @@ const Game = React.forwardRef((props, ref) => {
                           disabled={currentAnswer != null}
                           className={
                               "answer " +
-                              (wrongAnswer == 2 ? "incorrect " : "") +
-                              (currentAnswer == 2 ? "correct" : "")
+                              (wrongAnswer === 2 ? "incorrect " : "") +
+                              (currentAnswer === 2 ? "correct" : "")
                           }
                       >
                         <Badge text="2" size="l" />
@@ -167,8 +176,8 @@ const Game = React.forwardRef((props, ref) => {
                           disabled={currentAnswer != null}
                           className={
                               "answer " +
-                              (wrongAnswer == 3 ? "incorrect " : "") +
-                              (currentAnswer == 3 ? "correct" : "")
+                              (wrongAnswer === 3 ? "incorrect " : "") +
+                              (currentAnswer === 3 ? "correct" : "")
                           }
                       >
                         <Badge text="3" size="l" />
@@ -181,8 +190,8 @@ const Game = React.forwardRef((props, ref) => {
                           disabled={currentAnswer != null}
                           className={
                               "answer " +
-                              (wrongAnswer == 4 ? "incorrect " : "") +
-                              (currentAnswer == 4 ? "correct" : "")
+                              (wrongAnswer === 4 ? "incorrect " : "") +
+                              (currentAnswer === 4 ? "correct" : "")
                           }
                       >
                         <Badge text="4" size="l" />

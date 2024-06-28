@@ -77,18 +77,9 @@ function App() {
     assistantRef.current.on("data", (action) => {
       handleAssistantDataEvent(action);
     });
-
-
     assistantRef.current.on("command", (event) => {
       dispatchAssistantAction(event?.command);
     })
-    // assistantRef.current.on("start", () => {
-    //   console.log(`AssistantWrapper: _assistant.on(start)`);
-    // });
-    // assistantRef.current.on("data", ({ action }) => {
-    //   if (action) {
-    //   }
-    // });
   }, []);
 
   const handleAssistantDataEventSmartAppData = (event) => {
@@ -111,13 +102,11 @@ function App() {
       case 'new_topic': {
         console.log('new_topic', action.note)
         navigate('/game', { state: { Type: Number(action.note) } });
-        //navigate('/quizStart', { state: { Type: action.note } });
         break;
       }
       case 'choose_theory': {
         console.log('choose_theory', action.note)
         navigate('/theory/'.concat(action.note), { state: { Type: Number(action.note) } });
-        //navigate('/quizStart', { state: { Type: action.note } });
         break;
       }
 
@@ -128,6 +117,10 @@ function App() {
       case 'next':
         if (childRef?.current)
           childRef.current.callMethod('next');
+        break;
+      case 'correct_ans':
+        if (childRef?.current)
+          childRef.current.callMethod('correct_ans', Number(action.note));
         break;
       case 'menu':
         assistantRef.current.sendData({
@@ -171,18 +164,18 @@ function App() {
     console.log(command, type);
     
     const characterDependentResponses = {
-      joy: "ты",
-      eva: "вы",
-      sber: "вы"
+       joy: "ты",
+       eva: "вы",
+       sber: "вы"
     };
-    
+
     const responseStyle = characterDependentResponses[character] || "вы";
 
     assistantRef.current.sendData({
       action: {
         action_id: type,
         parameters: {
-          command,
+          number: command,
           responseStyle
         }
       }
@@ -211,7 +204,6 @@ function App() {
           navigate('/theory/'.concat(command), { state: { Type: 2 } });
           break;
         case 3: // "Future theory":
-          // navigate('/theory', { state: { Type: 3 } });
           navigate('/theory/'.concat(command), { state: { Type: 3 } });
           break;
         default:
