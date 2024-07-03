@@ -11,6 +11,7 @@ import {
   Route,
   useLocation
 } from "react-router-dom";
+import { getAnswers } from './indexedDB';
 import Game from './Components/Game';
 import PastTheory from './Components/PastTheory';
 import PresentTheory from './Components/PresentTheory';
@@ -133,7 +134,18 @@ function App() {
         })
         navigate('/');
         break;
-
+      case 'send_results':
+        getAnswers().then(answers => {
+          assistantRef.current.sendData({
+            action: {
+              action_id: 'show_results',
+              parameters: {
+                results: answers
+              }
+            }
+          });
+        });
+        break;
       default:
         // console.warn('dispatchAssistantAction: Unknown action.type:', action.type)
     }
